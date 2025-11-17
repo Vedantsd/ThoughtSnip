@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -19,6 +20,8 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/logo"
+            android:background="@drawable/round"
+            android:clipToOutline="true"
             android:contentDescription="App Logo" />
 
         <TextView
@@ -28,6 +31,7 @@
             android:fontFamily="serif"
             android:textSize="25sp"
             android:textStyle="bold|italic"
+            android:textColor="@color/darkpurple"
             android:layout_marginLeft="12dp"/>
     </LinearLayout>
 

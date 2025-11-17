@@ -24,7 +24,6 @@ public class ActivityViewIdea extends AppCompatActivity {
         String solution = getIntent().getStringExtra("solution");
         String date = getIntent().getStringExtra("date");
 
-        // Set data
         textTitle.setText(title);
         textDate.setText("Saved On: " + date);
         textProblem.setText(problem);

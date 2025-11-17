@@ -69,13 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadIdeas() {
         ideaList = dbHelper.getAllIdeas();
-        ideaTitles = new ArrayList<>();
-
-        for (Idea idea : ideaList) {
-            ideaTitles.add(idea.getTitle());
-        }
-
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, ideaTitles);
-        listView.setAdapter(adapter);
+        IdeaAdapter ideaAdapter = new IdeaAdapter(this, ideaList);
+        listView.setAdapter(ideaAdapter);
     }
 }
