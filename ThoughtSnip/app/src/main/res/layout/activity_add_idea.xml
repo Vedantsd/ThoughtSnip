@@ -1,63 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ActivityAddIdea"
     android:background="@drawable/gradient_bg"
     android:padding="16dp">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add New Idea"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:paddingBottom="16dp" />
-
-        <EditText
-            android:id="@+id/editTitle"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Idea Title"
-            android:padding="12dp"
-            android:background="@android:drawable/edit_text"
-            android:textSize="16sp" />
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
 
-        <EditText
-            android:id="@+id/editProblem"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:hint="Problem Statement"
-            android:gravity="top|start"
-            android:padding="12dp"
-            android:background="@android:drawable/edit_text"
-            android:textSize="16sp"
-            android:layout_marginTop="16dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add New Idea"
+                android:textColor="@color/black"
+                android:layout_gravity="center_horizontal"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:paddingBottom="16dp" />
 
-        <EditText
-            android:id="@+id/editSolution"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:hint="Solution"
-            android:gravity="top|start"
-            android:textSize="16sp"
-            android:padding="12dp"
-            android:background="@android:drawable/edit_text"
-            android:layout_marginTop="16dp" />
+            <EditText
+                android:id="@+id/editTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Idea Title"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                android:padding="12dp"
+                android:background="@drawable/roundcorner"
+                android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/btnSave"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Save Idea"
-            android:layout_marginTop="24dp"
-            android:padding="12dp" />
-    </LinearLayout>
-</ScrollView>
+            <EditText
+                android:id="@+id/editProblem"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:hint="Problem Statement"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                android:gravity="top|start"
+                android:padding="12dp"
+                android:background="@drawable/roundcorner"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp" />
+
+            <EditText
+                android:id="@+id/editSolution"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:hint="Solution"
+                android:textColorHint="@color/grey"
+                android:textColor="@color/black"
+                android:gravity="top|start"
+                android:textSize="16sp"
+                android:padding="12dp"
+                android:background="@drawable/roundcorner"
+                android:layout_marginTop="16dp" />
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Save Idea"
+                android:layout_marginTop="24dp"
+                android:padding="12dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
