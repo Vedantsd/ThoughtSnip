@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="Icon" href="src/logo-ts.png">
+    <title>Thought Snip - Capture Brilliance, Instantly</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ts-purple': '#a78bfa', // A nice mid-purple for accents
+                        'ts-light': '#f3e8ff', // Very light purple for background start
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        body {
+            cursor: none;
+        }
+
+        #custom-cursor {
+            position: fixed;
+            width: 1rem; 
+            height: 1rem;
+            background-color: #a78bfa; 
+            border-radius: 9999px;
+            pointer-events: none; 
+            z-index: 9999;
+            mix-blend-mode: difference; 
+            transition: transform 0.2s ease-out, background-color 0.2s ease-out; 
+            transform: translate(-50%, -50%) scale(1); 
+        }
+
+        @media (max-width: 768px) {
+            #custom-cursor {
+                display: none !important;
+            }
+            body {
+                cursor: default;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 scroll-smooth"> 
+    <div id="custom-cursor"></div>
+
+    <div class="min-h-screen bg-gradient-to-b from-ts-light to-white">
+
+        <header class="sticky top-0 z-10 bg-white/80 backdrop-blur-sm shadow-md rounded-b-xl">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    
+                    <a href="#home" class="flex items-center space-x-2">
+                        <img src="src/logo-ts.png" alt="TS" width="60px" height="60px" style="border-radius:20%; object-fit:cover; border: 2px black;">
+                        <span class="text-xl font-extrabold text-ts-purple">Thought Snip</span>
+                    </a>
+
+                    <!-- Navigation Links and Button (Right Side - Desktop) -->
+                    <nav class="hidden md:flex items-center space-x-6">
+                        <a href="#home" class="text-gray-600 hover:text-ts-purple transition-colors font-medium">Home</a>
+                        <a href="#about" class="text-gray-600 hover:text-ts-purple transition-colors font-medium">About</a>
+                        <a href="#screenshots" class="text-gray-600 hover:text-ts-purple transition-colors font-medium">ScreenShots</a>
+                        
+                        <!-- CTA Button -->
+                        <button class="px-5 py-2 bg-ts-purple text-white font-bold rounded-full hover:bg-purple-700 transition-all shadow-lg shadow-purple-300/50 cursor-not-allowed">
+                            Coming Soon...
+                        </button>
+                    </nav>
+
+                    <!-- Mobile Menu Button (Hamburger) -->
+                    <button id="mobile-menu-button" class="md:hidden p-2 text-gray-600 rounded-lg hover:bg-gray-100 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3 rounded-lg bg-white shadow-inner">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-ts-light">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-ts-light">About</a>
+                <a href="#screenshots" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-ts-light">ScreenShots</a>
+                <button class="w-full mt-2 px-3 py-2 bg-ts-purple text-white font-bold rounded-full cursor-not-allowed transition-all">
+                    Coming Soon...
+                </button>
+            </div>
+        </header>
+
+        <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-0 space-y-0 md:space-y-24"> <!-- Adjusted outer spacing -->
+
+            <section id="home" class="flex items-center justify-center py-20"> 
+                <div class="mx-auto">
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-center mb-8">
+                        <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight">
+                            Capture Brilliance, <span class="text-ts-purple">Instantly.</span>
+                        </h1>
+                        <div class="max-w-md py-12 md:py-16 bg-purple-200 shadow-xl rounded-3xl sm:p-12" style="padding: 5vh;">
+                            <p id="typewriter" class="text-lg md:text-lg text-gray-600" style="z-index: 9999;">
+                                Thought Snip is the fast, minimalist way to capture your ideas, notes, and fleeting thoughts whenever inspiration strikes. With a simple, intuitive interface, it lets you jot down everything from quick reminders to detailed concepts in seconds. Designed for Android, Thought Snip ensures your thoughts are always organized, easily accessible, and ready to turn into action, helping you stay productive and never lose a brilliant idea again.
+                            </p>
+                        </div>
+                            
+                    </div>
+                    
+                    <div class="flex justify-center" style="margin-top: 15vh;">
+                        <button class="px-10 py-4 bg-ts-purple text-white text-lg font-bold rounded-xl shadow-2xl shadow-purple-500/50 hover:scale-105 transition-transform duration-300 cursor-not-allowed">
+                            Coming Soon... 
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="space-y-24">
+                <section id="about" class="py-12 md:py-16 bg-white shadow-xl rounded-3xl p-8 sm:p-12">
+                    <h2 class="text-4xl font-bold text-center text-ts-purple mb-10">What is Thought Snip?</h2>
+                    <div class="max-w-3xl mx-auto text-lg space-y-6">
+                        <p>
+                            Thought Snip is your minimalist digital notebook, designed specifically for the spontaneous moments of inspiration that hit you when you least expect it. 
+                        </p>
+                        <p>
+                            The app's core philosophy is **simplicity and speed**. We eliminate all the friction of complex organizational tools, offering a single, clean interface where you can quickly record a thought, an idea, a to-do item, or a critical insight. 
+                        </p>
+                        <p class="font-semibold text-gray-700">
+                            It's a simple and easy-to-use Android app where you can **dump your ideas anytime anywhere**, ensuring you never lose a moment of creativity.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- --- -->
+
+                <!-- 3. Screenshots Section -->
+                <section id="screenshots" class="py-12 md:py-16">
+                    <h2 class="text-4xl font-bold text-center text-ts-purple mb-12">Sneak Peek: Screenshots</h2>
+                    <p class="text-center text-gray-600 mb-8">
+                        A look at the clean, intuitive design you can expect.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        
+                        <!-- Screenshot 1 -->
+                        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
+                            <!-- Using placeholder image (replace with actual image URLs later) -->
+                            <img 
+                                src="https://placehold.co/400x700/DCCFEF/342468?text=Screen+1+-+Capture" 
+                                alt="Screenshot 1: Quick Note Capture" 
+                                class="w-full h-auto object-cover rounded-t-2xl"
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x700/DCCFEF/342468?text=Placeholder';"
+                            >
+                            <!-- NOTE: Original image path was intended to be src/screenshots/screenshot1.png -->
+                            <p class="p-4 text-center text-sm font-medium text-gray-600">Quick Note Capture</p>
+                        </div>
+
+                        <!-- Screenshot 2 -->
+                        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
+                            <img 
+                                src="https://placehold.co/400x700/C8BFEA/342468?text=Screen+2+-+List" 
+                                alt="Screenshot 2: Simple Idea List" 
+                                class="w-full h-auto object-cover rounded-t-2xl"
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x700/C8BFEA/342468?text=Placeholder';"
+                            >
+                            <!-- NOTE: Original image path was intended to be src/screenshots/screenshot2.png -->
+                            <p class="p-4 text-center text-sm font-medium text-gray-600">Simple Idea List</p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
+                            <img 
+                                src="https://placehold.co/400x700/B5B0E6/342468?text=Screen+3+-+Search" 
+                                alt="Screenshot 3: Fast Search Function" 
+                                class="w-full h-auto object-cover rounded-t-2xl"
+                                onerror="this.onerror=null; this.src='https://placehold.co/400x700/B5B0E6/342468?text=Placeholder';"
+                            >
+                            <p class="p-4 text-center text-sm font-medium text-gray-600">Fast Search Function</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        
+        <footer class="bg-gray-800 text-white mt-12">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center text-center">
+                <p class="text-sm">&copy; <span id="current-year"></span> Thought Snip. All rights reserved.</p>
+                <p class="text-sm mt-2 sm:mt-0">Designed and Developed by <span class="text-ts-purple font-semibold">Vedant Desai</span></p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+
+        // const typewritertext = `Thought Snip is the fast, minimalist way to capture your ideas, notes, and fleeting thoughts whenever inspiration strikes. With a simple, intuitive interface, it lets you jot down everything from quick reminders to detailed concepts in seconds. Designed for Android, Thought Snip ensures your thoughts are always organized, easily accessible, and ready to turn into action, helping you stay productive and never lose a brilliant idea again.`
+        
+        // let i = 0;
+        // const speed = 10;
+
+        // function typeWriter() {
+        //     if (i < typewritertext.length) {
+        //         document.getElementById("typewriter").innerHTML += typewritertext.charAt(i);
+        //         i++;
+        //         setTimeout(typeWriter, speed);
+        //     }
+        // }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const currentYearSpan = document.getElementById('current-year');
+
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            currentYearSpan.textContent = new Date().getFullYear();
+        });
+
+        const customCursor = document.getElementById('custom-cursor');
+
+        const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+        if (!isTouchDevice) {
+            document.addEventListener('mousemove', (e) => {
+                customCursor.style.left = `${e.clientX}px`;
+                customCursor.style.top = `${e.clientY}px`;
+
+                const target = e.target;
+                const isInteractive = target.tagName === 'A' || target.tagName === 'BUTTON' || target.closest('a') || target.closest('button') || target.closest('.shadow-md');
+
+                if (isInteractive) {
+                    customCursor.style.transform = 'translate(-50%, -50%) scale(2.2)'; 
+                    customCursor.style.backgroundColor = 'white'; 
+                } else {
+                    customCursor.style.transform = 'translate(-50%, -50%) scale(1)'; 
+                    customCursor.style.backgroundColor = '#10B981'; 
+                }
+            });
+        }
+
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>
