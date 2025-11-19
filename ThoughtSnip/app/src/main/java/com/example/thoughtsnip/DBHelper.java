@@ -57,6 +57,43 @@ public class DBHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
+    public boolean deleteIdea(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int rows = db.delete(TABLE_NAME, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
+        return rows > 0;
+    }
+
+    public Idea getIdeaById(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_ID + " = ?",
+                new String[]{String.valueOf(id)});
+        Idea idea = null;
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                String title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE));
+                String problem = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PROBLEM));
+                String solution = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_SOLUTION));
+                String datetime = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DATETIME));
+
+                idea = new Idea(id, title, problem, solution, datetime);
+            }
+            cursor.close();
+        }
+        return idea;
+    }
+
+    public boolean updateIdea(Idea idea) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_TITLE, idea.getTitle());
+        cv.put(COLUMN_PROBLEM, idea.getProblemStatement());
+        cv.put(COLUMN_SOLUTION, idea.getSolution());
+        cv.put(COLUMN_DATETIME, idea.getDateTime());
+
+        int rows = db.update(TABLE_NAME, cv, COLUMN_ID + " = ?", new String[]{String.valueOf(idea.getId())});
+        return rows > 0;
+    }
+
     public ArrayList<Idea> getAllIdeas() {
         ArrayList<Idea> list = new ArrayList<>();
 

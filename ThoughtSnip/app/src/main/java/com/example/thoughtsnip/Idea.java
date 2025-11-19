@@ -42,4 +42,12 @@ public class Idea {
     public String getDateTime() {
         return dateTime;
     }
+
+    public void setTitle(String title) { this.title = title; }
+
+    public void setProblemStatement(String problemStatement) { this.problemStatement = problemStatement; }
+
+    public void setSolution(String solution) { this.solution = solution; }
+
+    public void setDateTime(String dateTime) { this.dateTime = dateTime; }
 }

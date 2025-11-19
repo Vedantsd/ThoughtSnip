@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ActivityViewIdea extends AppCompatActivity {
 
     TextView textTitle, textDate, textProblem, textSolution;
+    DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,14 +21,25 @@ public class ActivityViewIdea extends AppCompatActivity {
         textProblem = findViewById(R.id.textProblem);
         textSolution = findViewById(R.id.textSolution);
 
-        String title = getIntent().getStringExtra("title");
-        String problem = getIntent().getStringExtra("problem");
-        String solution = getIntent().getStringExtra("solution");
-        String date = getIntent().getStringExtra("date");
+        dbHelper = new DBHelper(this);
 
-        textTitle.setText(title);
-        textDate.setText("Saved On: " + date);
-        textProblem.setText(problem);
-        textSolution.setText(solution);
+        int id = getIntent().getIntExtra("id", -1);
+        if (id == -1) {
+            Toast.makeText(this, "Error loading idea", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
+        Idea idea = dbHelper.getIdeaById(id);
+        if (idea == null) {
+            Toast.makeText(this, "Idea not found", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
+        textTitle.setText(idea.getTitle());
+        textDate.setText("Saved On: " + idea.getDateTime());
+        textProblem.setText(idea.getProblemStatement());
+        textSolution.setText(idea.getSolution());
     }
 }

@@ -9,10 +9,12 @@
     android:padding="3dp"
     tools:context=".MainActivity">
 
+    <!-- Header -->
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:orientation="horizontal"
         android:padding="16dp"
         android:gravity="center_vertical|center_horizontal">
@@ -33,16 +35,19 @@
             android:textSize="25sp"
             android:textStyle="bold|italic"
             android:textColor="@color/darkpurple"
-            android:layout_marginLeft="12dp"/>
+            android:layout_marginStart="12dp"/>
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_below="@id/header"
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:dividerHeight="8dp"
-        android:padding="8dp" />
+        android:layout_below="@id/header"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="90dp"
+        tools:listitem="@layout/item_idea" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add"
