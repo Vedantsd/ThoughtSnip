@@ -4,6 +4,7 @@ plugins {
 
 android {
     namespace 'com.example.thoughtsnip'
+    android.buildFeatures.buildConfig = true
     compileSdk 36
 
     defaultConfig {
@@ -12,6 +13,11 @@ android {
         targetSdk 36
         versionCode 1
         versionName "1.0"
+        def props = new Properties()
+        file("${rootDir}/local.properties").withInputStream { props.load(it) }
+
+        def googleApiKey = props.getProperty("GOOGLE_API_KEY", "")
+        buildConfigField "String", "GOOGLE_API_KEY", "\"${googleApiKey}\""
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -37,4 +43,7 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+    implementation "com.google.ai.client.generativeai:generativeai:0.9.0"
+    implementation "com.google.guava:guava:31.0.1-android"
+    implementation "com.squareup.okhttp3:okhttp:4.12.0"
 }

@@ -2,14 +2,19 @@ package com.example.thoughtsnip;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ActivityViewIdea extends AppCompatActivity {
 
     TextView textTitle, textDate, textProblem, textSolution;
     DBHelper dbHelper;
+    FloatingActionButton fabAsk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +25,7 @@ public class ActivityViewIdea extends AppCompatActivity {
         textDate = findViewById(R.id.textDate);
         textProblem = findViewById(R.id.textProblem);
         textSolution = findViewById(R.id.textSolution);
+        fabAsk = findViewById(R.id.fab_ask);
 
         dbHelper = new DBHelper(this);
 
@@ -41,5 +47,16 @@ public class ActivityViewIdea extends AppCompatActivity {
         textDate.setText("Saved On: " + idea.getDateTime());
         textProblem.setText(idea.getProblemStatement());
         textSolution.setText(idea.getSolution());
+
+        fabAsk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ActivityViewIdea.this, ActivityAskGemini.class);
+                i.putExtra("title", idea.getTitle());
+                i.putExtra("problem", idea.getProblemStatement());
+                i.putExtra("solution", idea.getSolution());
+                startActivity(i);
+            }
+        });
     }
 }
