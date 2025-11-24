@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="Icon" href="src/logo-ts.png">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <title>Thought Snip - Capture Brilliance, Instantly</title>
-    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configure Tailwind -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'ts-purple': '#a78bfa', // A nice mid-purple for accents
-                        'ts-light': '#f3e8ff', // Very light purple for background start
+                        'ts-purple': '#a78bfa',
+                        'ts-light': '#f3e8ff', 
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -134,15 +133,13 @@
                             Thought Snip is your minimalist digital notebook, designed specifically for the spontaneous moments of inspiration that hit you when you least expect it. 
                         </p>
                         <p>
-                            The app's core philosophy is **simplicity and speed**. We eliminate all the friction of complex organizational tools, offering a single, clean interface where you can quickly record a thought, an idea, a to-do item, or a critical insight. 
+                            The app's core philosophy is simplicity and speed. We eliminate all the friction of complex organizational tools, offering a single, clean interface where you can quickly record a thought, an idea, a to-do item, or a critical insight. 
                         </p>
                         <p class="font-semibold text-gray-700">
-                            It's a simple and easy-to-use Android app where you can **dump your ideas anytime anywhere**, ensuring you never lose a moment of creativity.
+                            It's a simple and easy-to-use Android app where you can dump your ideas anytime anywhere, ensuring you never lose a moment of creativity.
                         </p>
                     </div>
                 </section>
-
-                <!-- --- -->
 
                 <!-- 3. Screenshots Section -->
                 <section id="screenshots" class="py-12 md:py-16">
@@ -154,38 +151,41 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         
                         <!-- Screenshot 1 -->
-                        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
-                            <!-- Using placeholder image (replace with actual image URLs later) -->
+                        <div data-aos="fade-right"
+                            data-aos-offset="300"
+                            data-aos-easing="ease-in-sine" 
+                            class="bg-white rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
                             <img 
-                                src="https://placehold.co/400x700/DCCFEF/342468?text=Screen+1+-+Capture" 
+                                src="src/screenshots/homepage.jpeg" 
                                 alt="Screenshot 1: Quick Note Capture" 
                                 class="w-full h-auto object-cover rounded-t-2xl"
                                 onerror="this.onerror=null; this.src='https://placehold.co/400x700/DCCFEF/342468?text=Placeholder';"
                             >
-                            <!-- NOTE: Original image path was intended to be src/screenshots/screenshot1.png -->
-                            <p class="p-4 text-center text-sm font-medium text-gray-600">Quick Note Capture</p>
+                            <p class="p-4 text-center text-sm font-medium text-gray-600">Idea List</p>
                         </div>
 
                         <!-- Screenshot 2 -->
-                        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
+                        <div data-aos="fade-up" class="bg-white rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
                             <img 
-                                src="https://placehold.co/400x700/C8BFEA/342468?text=Screen+2+-+List" 
+                                src="src/screenshots/add-idea.jpeg" 
                                 alt="Screenshot 2: Simple Idea List" 
                                 class="w-full h-auto object-cover rounded-t-2xl"
                                 onerror="this.onerror=null; this.src='https://placehold.co/400x700/C8BFEA/342468?text=Placeholder';"
                             >
-                            <!-- NOTE: Original image path was intended to be src/screenshots/screenshot2.png -->
-                            <p class="p-4 text-center text-sm font-medium text-gray-600">Simple Idea List</p>
+                            <p class="p-4 text-center text-sm font-medium text-gray-600">Add Idea Screen</p>
                         </div>
 
-                        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
+                        <div data-aos="fade-left"
+                            data-aos-offset="300"
+                            data-aos-easing="ease-in-sine" 
+                            class="bg-white rounded-2xl shadow-2xl overflow-hidden transform hover:scale-[1.02] transition-transform duration-300">
                             <img 
-                                src="https://placehold.co/400x700/B5B0E6/342468?text=Screen+3+-+Search" 
+                                src="src/screenshots/view-idea.jpeg" 
                                 alt="Screenshot 3: Fast Search Function" 
                                 class="w-full h-auto object-cover rounded-t-2xl"
                                 onerror="this.onerror=null; this.src='https://placehold.co/400x700/B5B0E6/342468?text=Placeholder';"
                             >
-                            <p class="p-4 text-center text-sm font-medium text-gray-600">Fast Search Function</p>
+                            <p class="p-4 text-center text-sm font-medium text-gray-600">View Idea Screen</p>
                         </div>
                     </div>
                 </section>
@@ -258,6 +258,13 @@
         document.addEventListener('contextmenu', (e) => {
             e.preventDefault();
         });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init({
+        duration: 800,   // animation duration (optional)
+        once: true       // only animate once per element
+    });
     </script>
 </body>
 </html>
