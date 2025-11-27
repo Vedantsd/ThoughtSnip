@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.SearchView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     FloatingActionButton fabAdd;
+    SearchView searchView;
     DBHelper dbHelper;
     ArrayList<Idea> ideaList;
     IdeaRecyclerAdapter adapter;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         fabAdd = findViewById(R.id.fab_add);
+        searchView = findViewById(R.id.searchView);    // <-- Added
 
         dbHelper = new DBHelper(this);
 
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         loadIdeas();
+        setupSearch();
     }
 
     @Override
@@ -68,6 +72,24 @@ public class MainActivity extends AppCompatActivity {
 
         enableSwipe();
     }
+
+    private void setupSearch() {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (adapter != null) {
+                    adapter.getFilter().filter(newText);
+                }
+                return true;
+            }
+        });
+    }
+    // ------------------------------------------------------------
 
     private void enableSwipe() {
 

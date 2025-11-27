@@ -38,12 +38,22 @@
             android:layout_marginStart="12dp"/>
     </LinearLayout>
 
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search ideas..."
+        android:padding="8dp"/>
+
+
     <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/header"
+        android:layout_below="@id/searchView"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         android:paddingBottom="90dp"
