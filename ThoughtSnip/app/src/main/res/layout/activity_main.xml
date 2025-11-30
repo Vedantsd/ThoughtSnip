@@ -45,7 +45,7 @@
         android:layout_below="@id/header"
         android:iconifiedByDefault="false"
         android:queryHint="Search ideas..."
-        android:background="#CCCCFF"
+        android:background="#E0B0FF"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:padding="8dp"/>

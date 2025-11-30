@@ -50,7 +50,7 @@ public class ActivityAskGemini extends AppCompatActivity {
         String prompt = "Title: " + title +
                 "\nProblem: " + problem +
                 "\nSolution: " + solution +
-                "\n\nReview my idea and tell me the pros and cons in under 300 words. Don't use any text designing, just give plain text";
+                "\n\nReview my idea and tell me the pros and cons in under 300 words. Don't use any text designing, just give plain text. Don't use bold, italic or any kind of formatting, just plain txt";
 
         String apiKey = BuildConfig.GOOGLE_API_KEY;
 
